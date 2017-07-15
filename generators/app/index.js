@@ -86,7 +86,7 @@ writing() {
         this.log("creating "+this.destinationPath(this.props.safeName, file));
         }
       }
-    }.bind(this));
+    }.bind(this)); 
   
     ['Config', 'wwwroot'].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
