@@ -22,7 +22,7 @@ namespace <%= safeName %>.Server.Extensions
             });
             return app;
         }
-        public static IApplicationBuilder UseCustomSwaggerApi(this IApplicationBuilder app)
+        public static IApplicationBuilder AddSwaggerApi(this IApplicationBuilder app)
         {
             app.UseSwagger();
             app.UseSwaggerUI(c =>
@@ -37,17 +37,17 @@ namespace <%= safeName %>.Server.Extensions
 
         public static IApplicationBuilder AddDevMiddlewares(this IApplicationBuilder app)
         {
-            var env = app.ApplicationServices.GetRequiredService<IHostingEnvironment>();
+            var environment = app.ApplicationServices.GetRequiredService<IHostingEnvironment>();
             var loggerFactory = app.ApplicationServices.GetRequiredService<ILoggerFactory>();
 
-            if (env.IsDevelopment())
+            if (environment.IsDevelopment())
             {
                 loggerFactory.AddConsole(Startup.Configuration.GetSection("Logging"));
                 loggerFactory.AddDebug();
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 app.UseCustomWebpackDevMiddleware();
-                app.UseCustomSwaggerApi();
+                app.AddSwaggerApi();
             }
 
             loggerFactory.AddSerilog();

@@ -3,7 +3,7 @@ import { Person } from '../shared//models/person.model';
 import { AppService } from '../app.service';
 
 @Component({
-  selector: 'appc-person',
+  selector: '<%= selector %>-person',
   templateUrl: './person.component.html',
   styleUrls: ['./person.component.scss']
 })

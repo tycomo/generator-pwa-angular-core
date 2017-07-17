@@ -9,29 +9,26 @@ namespace <%= safeName %>.Server.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHostingEnvironment _env;
+        private readonly IHostingEnvironment _environment;
 
-        public HomeController(IHostingEnvironment env)
+        public HomeController(IHostingEnvironment environment)
         {
-            _env = env;
+            _environment = environment;
         }
 
         public async Task<IActionResult> Index()
         {
-            ViewBag.MainDotJs = await GetMainDotJs();
+            ViewBag.MainJs = await GetMainJs();
 
             return View();
         }
 
-        // Because for production this is hashed chunk so has changes on each production build
-        public async Task<string> GetMainDotJs()
+        public async Task<string> GetMainJs()
         {
-            var basePath = _env.WebRootPath + "//dist//";
+            var basePath = _environment.WebRootPath + "//dist//";
 
-            if (_env.IsDevelopment() && !System.IO.File.Exists(basePath + "main.js"))
+            if (_environment.IsDevelopment() && !System.IO.File.Exists(basePath + "main.js"))
             {
-                // Just a .js request to make it wait to finish webpack dev middleware finish creating bundles:
-                // More info here: https://github.com/aspnet/JavaScriptServices/issues/578#issuecomment-272039541
                 using (var client = new HttpClient())
                 {
                     var requestUri = Request.Scheme + "://" + Request.Host + "/dist/main.js";
@@ -41,7 +38,7 @@ namespace <%= safeName %>.Server.Controllers
 
             var info = new System.IO.DirectoryInfo(basePath);
             var file = info.GetFiles()
-                .Where(f => _env.IsDevelopment() ? f.Name == "main.js" : f.Name.StartsWith("main.") && !f.Name.EndsWith("bundle.map"));
+                .Where(f => _environment.IsDevelopment() ? f.Name == "main.js" : f.Name.StartsWith("main.") && !f.Name.EndsWith("bundle.map"));
             return file.FirstOrDefault().Name;
         }
 

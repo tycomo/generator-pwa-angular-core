@@ -14,7 +14,7 @@ namespace <%= safeName %>.Server
             Log.Logger = new LoggerConfiguration()
             .MinimumLevel
             .Information()
-            .WriteTo.RollingFile("logs/log-{Date}.txt", LogEventLevel.Information) // Uncomment if logging required on text file
+            .WriteTo.RollingFile("logs/<%= safeName %>-log-{Date}.txt", LogEventLevel.Information)
             .CreateLogger();
         }
     }
