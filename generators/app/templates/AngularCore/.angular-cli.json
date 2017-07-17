@@ -18,7 +18,7 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "<%= selector %>",
-      "styles": [],
+      "styles": ["./styles/styles.scss"],
       "scripts": []
     }
   ],

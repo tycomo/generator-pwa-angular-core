@@ -60,12 +60,6 @@ namespace <%= safeName %>
         public void Configure(IApplicationBuilder app)
         {
             app.AddDevMiddlewares();
-
-            if (_hostingEnv.IsProduction())
-            {
-                app.UseResponseCompression();
-            }
-
             app.SetupMigrations();
             app.UseStaticFiles();
             app.UseDeveloperExceptionPage();
