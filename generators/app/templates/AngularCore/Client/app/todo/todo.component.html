@@ -1,0 +1,25 @@
+<div class="container"
+     fxLayout
+     fxLayout.xs="column"
+     fxLayoutAlign="center"
+     fxLayoutGap="10px"
+     fxLayoutGap.xs="0">
+
+<md-card fxFlex=95% style="margin-top:2.5%;">
+  <header>
+    <h1>Todos</h1>
+    <md-input-container>
+      <input mdInput placeholder="What do you need to do?" autofocus="" [(ngModel)]="newTodo.todo" (keyup.enter)="addTodo()" >
+    </md-input-container>
+  </header>
+  <md-card-content>
+    <md-list>
+      <md-list-item *ngFor="let todo of todos" [class.completed]="todo.complete">
+        <md-checkbox (click)="toggleTodoComplete(todo)" [checked]="todo.complete"></md-checkbox>
+        <label>{{todo.toDo}}</label>
+        <button class="destroy" (click)="deleteTodo(todo._id)"></button>
+       </md-list-item>
+    </md-list>
+  </md-card-content>
+</md-card>
+</div>

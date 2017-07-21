@@ -61,7 +61,7 @@ writing() {
     //copy no templating
     [
       'package.json', 'tsconfig.json', 'web.config', 
-      'karma.conf.js', 'protractor.conf.js', 'tslint.json', '.npmignore', '.travis.yml', 'hosting.json',
+      'karma.conf.js', 'protractor.conf.js', '.npmignore', '.travis.yml', 'hosting.json',
       'NuGet.conf', 'tsconfig.webpack', 'tslint', '.gitignore',  
     ].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
@@ -73,7 +73,7 @@ writing() {
     }.bind(this));
 
     //copy with templating
-        ['package.json','.angular-cli.json','Program.cs', 'Startup.cs', 'AngularCore.csproj','appsettings.json'
+        ['package.json','.angular-cli.json','Program.cs', 'Startup.cs', 'AngularCore.csproj','appsettings.json','tslint.json'
     ].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       else{

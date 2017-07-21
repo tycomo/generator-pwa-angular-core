@@ -9,10 +9,10 @@ import { AppService } from './app.service';
 import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
-import { PersonComponent } from './person/person.component';
+import { ToDoComponent } from './todo/todo.component';
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, PersonComponent],
+    declarations: [AppComponent, HomeComponent, ToDoComponent],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,

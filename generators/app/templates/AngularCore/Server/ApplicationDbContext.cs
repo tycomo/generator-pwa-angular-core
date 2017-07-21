@@ -5,7 +5,7 @@ namespace <%= safeName %>.Server
 {
     public class ApplicationDbContext : DbContext
     {
-        public DbSet<Person> Person { get; set; }
+        public DbSet<ToDo> Person { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }

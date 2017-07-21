@@ -1,2 +1,35 @@
-    <md-toolbar color="primary"> 
-    </md-toolbar>    
+<md-sidenav-container fullscreen>
+  <md-sidenav #sidenav mode="side">
+      <md-toolbar>
+          <a md-button href="/home">Home</a>
+          <md-toolbar-row>
+              <a md-button href="https://www.microsoft.com/net/core">.NET Core</a>
+              </md-toolbar-row>
+              <md-toolbar-row>      
+              <a md-button href="https://angular.io/">Angular</a>
+              </md-toolbar-row>   
+            <md-toolbar-row> 
+              <a md-button href="https://material.angular.io/">Material</a>
+              </md-toolbar-row> 
+            <md-toolbar-row>     
+              <a md-button href="https://github.com/ty53ler">GitHub</a>
+              </md-toolbar-row>   
+            <md-toolbar-row>   
+              <a md-button href="/swagger">Swagger</a>
+              </md-toolbar-row>     
+            <md-toolbar-row> 
+              <a md-button href="/person">API Example</a>  
+              </md-toolbar-row>                
+        </md-toolbar>
+  </md-sidenav>
+    <md-toolbar color="primary">
+        <button md-button (click)="sidenav.toggle()">
+            <i class="fa fa-bars"></i>
+        </button>
+            
+        <span class="app-toolbar-filler"></span>
+        <md-sidenav>
+        </md-sidenav>
+    </md-toolbar>
+    <router-outlet></router-outlet>
+</md-sidenav-container>

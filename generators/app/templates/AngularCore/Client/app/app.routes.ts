@@ -1,11 +1,11 @@
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PersonComponent } from './person/person.component'
+import { ToDoComponent } from './todo/todo.component'
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full'},
-    { path: 'person', component: PersonComponent }
+    { path: 'todo', component: ToDoComponent }
 ];
 
 export const routing = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });
