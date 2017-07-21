@@ -5,7 +5,7 @@
      fxLayoutGap="10px"
      fxLayoutGap.xs="0">
 
-<md-card fxFlex=95% style="margin-top:2.5%;">
+<md-card fxFlex="95%" style="margin-top:2.5%;">
   <header>
     <h1>Todos</h1>
     <md-input-container>
@@ -17,8 +17,10 @@
       <md-list-item *ngFor="let todo of todos" [class.completed]="todo.complete">
         <md-checkbox (click)="toggleTodoComplete(todo)" [checked]="todo.complete"></md-checkbox>
         <label>{{todo.toDo}}</label>
-        <button class="destroy" (click)="deleteTodo(todo._id)"></button>
-       </md-list-item>
+      <button md-mini-fab color="warn" (click)="deleteTodo(todo._id)">
+        <i class="fa fa-trash"></i>
+      </button>
+    </md-list-item>
     </md-list>
   </md-card-content>
 </md-card>
