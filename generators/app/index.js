@@ -62,7 +62,7 @@ writing() {
     [
       'package.json', 'tsconfig.json', 'web.config', 
       'karma.conf.js', 'protractor.conf.js', '.npmignore', '.travis.yml', 'hosting.json',
-      'NuGet.config', 'tslint.json', '.gitignore', 'tsconfig.webpack.json', 'cert.pfx'  
+      'NuGet.config', 'tslint.json', '.gitignore', 'tsconfig.webpack.json'
     ].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       else{
@@ -88,7 +88,7 @@ writing() {
       }
     }.bind(this)); 
   
-    ['Config','extra/cert.pfx', 'wwwroot'].forEach(function (file) {
+    ['Config','extra/cert', 'wwwroot'].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       this.fs.copy(this.sourceRoot()+'/AngularCore/'+file,this.destinationPath(this.props.safeName, file)); 
     }.bind(this));
