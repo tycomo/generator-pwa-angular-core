@@ -90,7 +90,15 @@ writing() {
   
     ['Config','extra/cert', 'wwwroot'].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
-      this.fs.copy(this.sourceRoot()+'/AngularCore/'+file,this.destinationPath(this.props.safeName, file)); 
+      else{
+        if(file == "extra/cert"){
+          this.fs.copy(this.sourceRoot()+'/AngularCore/'+file,this.destinationPath(this.props.safeName, file+".pfx"))  
+        this.log("creating "+this.destinationPath(this.props.safeName, file));  
+        }else{
+          this.fs.copy(this.sourceRoot()+'/AngularCore/'+file,this.destinationPath(this.props.safeName, file)); 
+          this.log("creating "+this.destinationPath(this.props.safeName, file));
+        }
+      }
     }.bind(this));
 
         ['Client', 'Server', 'Views','wwwroot/manifest.json'].forEach(function (file) {
@@ -112,6 +120,6 @@ writing() {
      this.spawnCommandSync("npm", ["install"]);
      this.spawnCommandSync('npm', ['run', 'build:dev']);
      this.spawnCommandSync('npm', ['run', 'build:dotnet']);
-     this.log('\nHave fun working on ' + this.props.appName + '.  Be sure to check out my github (https://github.com/tylercomo) to get additional documentation or to submit an issue.');
+     this.log('\nHave fun working on ' + this.props.appName + '.  Be sure to check out my github (https://github.com/tycomo) to get additional documentation or to submit an issue.');
   }
 };
