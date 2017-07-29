@@ -88,7 +88,7 @@ writing() {
       }
     }.bind(this)); 
   
-    ['Config','extra', 'wwwroot'].forEach(function (file) {
+    ['Config','extra/cert.pfx', 'wwwroot'].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       this.fs.copy(this.sourceRoot()+'/AngularCore/'+file,this.destinationPath(this.props.safeName, file)); 
     }.bind(this));
