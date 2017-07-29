@@ -62,7 +62,7 @@ writing() {
     [
       'package.json', 'tsconfig.json', 'web.config', 
       'karma.conf.js', 'protractor.conf.js', '.npmignore', '.travis.yml', 'hosting.json',
-      'NuGet.conf', 'tsconfig.webpack', 'tslint', '.gitignore', 'tsconfig.webpack.json'  
+      'NuGet.config', 'tslint.json', '.gitignore', 'tsconfig.webpack.json', 'cert.pfx'  
     ].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       else{
