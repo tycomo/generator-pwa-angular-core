@@ -49,7 +49,7 @@ dotnet run
 ```
 8. Navigate to https://localhost:5001
 
- <img src="assets/home.png" height=""><br>
+ <img src="assets/home.png"><br>
 9. To create your migration in your SQL server be sure the connection string in appsettings.json is correct (I use the local SQL database that comes with my Visual Studio installation).  Then run the following commands to create the tables.  The Todo API Example should now work.
 ```
 dotnet ef migrations add InitialMigration
@@ -71,7 +71,7 @@ From here you can publish the file to an Azure App Service or whatever hosting s
 ### Development Tips
 * I recommend using [Visual Studio Code](https://code.visualstudio.com/) for development.
 * Here are some extensions to use inside VS Code that make your life easier.<br>
- <img src="assets/vscodeextensions.png" height=""><br>
+ <img src="assets/vscodeextensions.png"><br>
 * All the icons for iOS and Android devices can be generated using [RealFavIconGenerator](https://realfavicongenerator.net/).
 * Be sure to check out the Angular CLI commands for generating components, services, and models.
 
