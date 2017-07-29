@@ -45,6 +45,7 @@ yo
  * If any errors occur during this step try running "dotnet restore" or "npm install" to find out what packages are causing issues.
 7. If everything installed correctly you can now run the project by running the following command.
 ```
+set ASPNETCORE_ENVIRONMENT=Development or setx ASPNETCORE_ENVIRONMENT "Development" (in powershell)
 dotnet run
 ```
 8. Navigate to https://localhost:5001
@@ -54,6 +55,11 @@ dotnet run
 ```
 dotnet ef migrations add InitialMigration
 dotnet ef database update
+```
+10. You can rebuild the compiled dist folder by first cleaning out the old folders then rebuilding.
+```
+npm run clean:dist
+npm run build:dev
 ```
 ### Deployment
 I have not perfected the deployment to production but by running 
@@ -66,7 +72,7 @@ This will clean your dist folder and run your use the Webpack configuration to c
 From here you can publish the file to an Azure App Service or whatever hosting service you decide to use.  I was not able to get the Azure command line tools working to publish the file and ended up using simple FTP to get the files deployed.
 
 ### Updates
-* 1.0.0 first release.
+* 1.0.4 first release.
 
 ### Development Tips
 * I recommend using [Visual Studio Code](https://code.visualstudio.com/) for development.
@@ -86,4 +92,4 @@ Be sure to check out the following projects. I simplified some aspects of Asadsa
 * Reduce project size.
 * Angular Material 2 Treeshaking
 
-Be sure to star the repo if this was helpful.  I am planning to keep this updated and continue to improve functionality as Angular and .NET Core evolve.
+Be sure to star the repo if this was helpful.  I am planning to keep this updated and continue to improve functionality as Angular and .NET Core evolve.  Make sure you are getting the updated Yeoman generator when scaffolding the project.  You can update by running the yo command then selecting "Update your generators".
