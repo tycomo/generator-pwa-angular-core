@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using <%= safeName %>.Server;
 using <%= safeName %>.Server.Extensions;
 using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace <%= safeName %>
 {
@@ -43,6 +44,13 @@ namespace <%= safeName %>
         {
             services.AddOptions();
 
+            if (_hostingEnv.IsDevelopment())
+            {
+                services.AddSslCertificate(_hostingEnv);
+            }
+
+            services.AddHttpsRedirect(_hostingEnv);
+
             services.AddCustomDbContext();
 
             services.AddMemoryCache();
@@ -59,6 +67,19 @@ namespace <%= safeName %>
         }
         public void Configure(IApplicationBuilder app)
         {
+
+            var options = new RewriteOptions();
+
+            if (_hostingEnv.IsDevelopment())
+            {
+                options.AddRedirectToHttps(302, 5001);
+            }
+            else
+            {
+                options.AddRedirectToHttps();
+            }
+
+            app.UseRewriter(options);
             app.AddDevMiddlewares();
             app.SetupMigrations();
             app.UseStaticFiles();

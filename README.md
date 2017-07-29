@@ -1,36 +1,89 @@
-# generator-angular-core [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Angular 4 project that uses .NET Core and Entity Framework
 
-## Installation
+Yeoman PWA Angular 4 & .NET Core
+=================
 
-First, install [Yeoman](http://yeoman.io) and generator-angular-core using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+<img src="assets/angularcore2.png" height="80"><br>
+A way to quickly generate a progressive web app that uses Angular 4, .NET Core, and Entity Framework.  This application can be added to your desktop, or homescreen on iOS or Android devices. <br>
+Live demo: [https://angularcore.azurewebsites.net/home](https://angularcore.azurewebsites.net/home)<br>
+* The API example (Todo list) does not work in demo (no SQL server configured in Azure).
 
-```bash
+
+### Features
+* [ASP.NET Core](http://www.dot.net/)
+* [Entity Framework Core](https://docs.efproject.net/en/latest/)
+* [Angular CLI & AOT](https://cli.angular.io/)
+* [Angular 2 Material](https://material.angular.io/) components.
+* [Webpack 2](https://webpack.github.io/)
+* [Typescript 2](http://www.typescriptlang.org/)
+* [SASS](http://sass-lang.com/) 
+* Testing including [Jasmine](http://jasmine.github.io/) and [Karma](https://karma-runner.github.io/0.13/index.html).
+* End-To-End Angular Testing using [Protractor](http://www.protractortest.org).
+* [HMR](https://webpack.github.io/docs/hot-module-replacement.html) (Hot Module Replacement)
+* [Serilog](https://serilog.net/) for detailed logging.
+* [Swagger](http://swagger.io/) as Api explorer (Visit url **https://localhost:5001/swagger** after running the application). More [details](https://github.com/domaindrivendev/Swashbuckle.AspNetCore)
+* Plus many more.
+
+### How To Get Started
+
+
+1. First, install the scaffolding tool [Yeoman](http://yeoman.io/) and the PWA Angular Core template.
+```
 npm install -g yo
-npm install -g generator-angular-core
+npm install -g generator-pwa-angular-core
 ```
-
-Then generate your new project:
-
-```bash
-yo angular-core
+2. Install [.NET Core](http://www.dot.net/) you should be able to find documentation on getting it up and running at the provided link.
+3. Install Angular CLI
 ```
+npm install -g @angular/cli
+```
+4. Open the command prompt and navigate to where you want the project to be located. Then run yo and then select "Pwa Angular Core"
+```
+yo
+```
+5.  You will be prompted on to enter values for the namespace, and a prefix for your components.
+6.  This will take a couple minutes for all files to be copied, packages to be installed, and for webpack to compile your resources.
+ * If any errors occur during this step try running "dotnet restore" or "npm install" to find out what packages are causing issues.
+7. If everything installed correctly you can now run the project by running the following command.
+```
+dotnet run
+```
+8. Navigate to https://localhost:5001
 
-## Getting To Know Yeoman
+ <img src="assets/home.png" height=""><br>
+9. To create your migration in your SQL server be sure the connection string in appsettings.json is correct (I use the local SQL database that comes with my Visual Studio installation).  Then run the following commands to create the tables.  The Todo API Example should now work.
+```
+dotnet ef migrations add InitialMigration
+dotnet ef database update
+```
+### Deployment
+I have not perfected the deployment to production but by running 
+```
+set ASPNETCORE_ENVIRONMENT=Production or setx ASPNETCORE_ENVIRONMENT "Production" (in powershell)
+npm run clean:dist
+npm run build:prod
+```
+This will clean your dist folder and run your use the Webpack configuration to compile production resources using AOT and different plugins to reduce project size.<br>
+From here you can publish the file to an Azure App Service or whatever hosting service you decide to use.  I was not able to get the Azure command line tools working to publish the file and ended up using simple FTP to get the files deployed.
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+### Updates
+* 1.0.0 first release.
 
-## License
+### Development Tips
+* I recommend using [Visual Studio Code](https://code.visualstudio.com/) for development.
+* Here are some extensions to use inside VS Code that make your life easier.<br>
+ <img src="assets/vscodeextensions.png" height=""><br>
+* All the icons for iOS and Android devices can be generated using [RealFavIconGenerator](https://realfavicongenerator.net/).
+* Be sure to check out the Angular CLI commands for generating components, services, and models.
 
-MIT © [ty53ler]()
 
+### Credit
+Be sure to check out the following projects. I simplified some aspects of Asadsahis .NET Core configuration and used MarkPieszaks project for inspiration.  Both are great resources on how to do certain things within Angular & .NET Core. <br>
+[Progressive Web App Tutorial](https://houssein.me/progressive-angular-applications)<br>
+[Asadsahi AspNetCoreSpa Template](https://github.com/asadsahi/AspNetCoreSpa) <br>
+[MarkPieszak Aspnetcore Angular 2 Universal](https://github.com/MarkPieszak/aspnetcore-angular2-universal)
+### Areas for Improvement
+* Get lighthouse score to 100/100 currently at 82. 
+* Reduce project size.
+* Angular Material 2 Treeshaking
 
-[npm-image]: https://badge.fury.io/js/generator-angular-core.svg
-[npm-url]: https://npmjs.org/package/generator-angular-core
-[travis-image]: https://travis-ci.org/ty53ler/generator-angular-core.svg?branch=master
-[travis-url]: https://travis-ci.org/ty53ler/generator-angular-core
-[daviddm-image]: https://david-dm.org/ty53ler/generator-angular-core.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/ty53ler/generator-angular-core
+Be sure to star the repo if this was helpful.  I am planning to keep this updated and continue to improve functionality as Angular and .NET Core evolve.

@@ -21,7 +21,7 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the ' + chalk.red('Angular 4 + .Net Core') + ' generator.  This is a simple template that should get you started coding fast using the best practices!'
+      'Welcome to the ' + chalk.red('PWA Angular 4 + .Net Core') + ' generator.  This is a simple template that should get you started coding fast!'
     ));
 
     var prompts = [{
@@ -62,7 +62,7 @@ writing() {
     [
       'package.json', 'tsconfig.json', 'web.config', 
       'karma.conf.js', 'protractor.conf.js', '.npmignore', '.travis.yml', 'hosting.json',
-      'NuGet.conf', 'tsconfig.webpack', 'tslint', '.gitignore',  
+      'NuGet.conf', 'tsconfig.webpack', 'tslint', '.gitignore', 'tsconfig.webpack.json'  
     ].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       else{
@@ -88,12 +88,12 @@ writing() {
       }
     }.bind(this)); 
   
-    ['Config', 'wwwroot'].forEach(function (file) {
+    ['Config','extra', 'wwwroot'].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       this.fs.copy(this.sourceRoot()+'/AngularCore/'+file,this.destinationPath(this.props.safeName, file)); 
     }.bind(this));
 
-        ['Client', 'Server', 'Views'].forEach(function (file) {
+        ['Client', 'Server', 'Views','wwwroot/manifest.json'].forEach(function (file) {
       if (!exists('AngularCore' + '/' + file)) return;
       this.fs.copyTpl(this.sourceRoot()+'/AngularCore/'+file,this.destinationPath(this.props.safeName, file),this.templateData);
     }.bind(this));

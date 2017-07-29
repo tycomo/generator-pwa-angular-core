@@ -1,11 +1,11 @@
 {
-  "name": "generator-angular-core",
+  "name": "generator-pwa-angular-core",
   "version": "0.0.0",
-  "description": "Angular 4 project that uses .NET Core and Entity Framework",
+  "description": "PWA Angular 4 project that uses .NET Core and Entity Framework",
   "homepage": "",
   "author": {
-    "name": "ty53ler",
-    "email": "ty53ler@gmail.com",
+    "name": "tycomo",
+    "email": "tylerjcomo@gmail.com",
     "url": ""
   },
   "files": [
@@ -44,6 +44,6 @@
       "node": true
     }
   },
-  "repository": "ty53ler/generator-angular-core",
+  "repository": "tycomo/generator-pwa-angular-core",
   "license": "MIT"
 }

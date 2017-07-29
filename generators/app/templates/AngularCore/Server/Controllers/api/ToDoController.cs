@@ -6,11 +6,12 @@ using <%= safeName %>.Server;
 using <%= safeName %>.Server.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace <%= safeName %>.Server.Controllers.api
 {
     [Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [AllowAnonymous]
     public class ToDoController : Controller
     {

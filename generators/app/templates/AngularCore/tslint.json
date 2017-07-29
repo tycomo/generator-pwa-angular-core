@@ -112,7 +112,7 @@
     "component-selector": [
       true,
       "element",
-      "<%= selector %",
+      "<%= selector %>",
       "kebab-case"
     ],
     "use-input-property-decorator": true,

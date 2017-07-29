@@ -1,35 +1,27 @@
 @import "../../styles/styles.scss";
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+@import "../../styles/_variables.scss";
 
             .content {
                 text-align: center;
             }
 
+            .logo {
+                max-width:8%;
+                height:auto;
+                vertical-align: middle;
+            }
+
             .title {
                 display: inline-block;
-                font-size: 84px;
+                font-size: 4vw;
                 font-family: 'Roboto', sans-serif;
                 position: relative;
+
+                @media #{$mobile-only} {
+                         font-size: 8vw;
+                    }
             }
+
 
             .links > a {
                 color: #636b6f;

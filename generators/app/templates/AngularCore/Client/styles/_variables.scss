@@ -1,10 +1,3 @@
-$primary-colour: #1B5E7F;
-//$primary-colour: orange;
-$primary-accent: #19526f;
-
-$white-colour: #FFFFFF;
-$grey-colour: #E2E2E2;
-$text-colour: #757575;
-
-$grey-box-shadow: 10px 10px 20px #F2F2F2;
-$grey-box-border: 1px solid #DDDDDD;
+$mobile-only: "only screen and (max-width : 768px)";
+$laptop-only: "only screen and (min-width : 769px)";
+$tablet-only: "only screen and (max-width : 1024px)";
