@@ -1,6 +1,6 @@
 {
   "name": "generator-pwa-angular-core",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "PWA Angular 4 project that uses .NET Core and Entity Framework",
   "homepage": "",
   "author": {
