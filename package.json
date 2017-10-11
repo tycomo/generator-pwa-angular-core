@@ -1,6 +1,6 @@
 {
   "name": "generator-pwa-angular-core",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "PWA Angular 4 project that uses .NET Core and Entity Framework",
   "homepage": "",
   "author": {
@@ -13,7 +13,10 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator",
+    "angular-template",
+    "angular2",
+    ".net-core"
   ],
   "devDependencies": {
     "yeoman-test": "^1.6.0",
